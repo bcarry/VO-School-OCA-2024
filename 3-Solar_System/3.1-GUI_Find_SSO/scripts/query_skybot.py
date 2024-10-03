@@ -12,7 +12,7 @@ dec = "+26d34m00"
 observer = "500"
 
 # Service URL
-url = "http://vo.imcce.fr/webservices/skybot/skybotconesearch_query.php?"
+url = "https://ssp.imcce.fr/webservices/skybot/api/conesearch.php?"
 
 # Query parameters
 params = {

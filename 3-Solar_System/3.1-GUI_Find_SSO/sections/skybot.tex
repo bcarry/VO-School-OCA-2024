@@ -42,11 +42,9 @@
   \begin{enumerate}
     \setlength\itemsep{0em}
     \item Launch \aladin.
-
-    \item Using the \texttt{view control}, center de view on (RA,Dec) of (07h 08m, +26d 34m).
-
-    \item Open the \texttt{Serveur selector}. Keystroke \texttt{ctrl-l} or \texttt{File} 
-      $\rightarrow$ \texttt{Open server selector}.
+    \item Using the \texttt{View Control} (see Fig. \ref{fig:aladin}), center de view on 
+          RA = $07^{h}\,08^{m}$, DEC = $+26^{\circ}\,34^{m}$ \reftips{1}
+	\item Using the \texttt{Data Exploration}, open the \skybot interface \reftips{2}
   \end{enumerate}
   \setcounter{saveitem}{\value{enumi}}  
 
@@ -91,18 +89,29 @@
   \begin{enumerate}
     \setlength\itemsep{0em}
     \setcounter{enumi}{\value{saveitem}}
-    \item Select all SSOs. \texttt{Ctrl-a} or \texttt{Edit} $\rightarrow$ \texttt{Select all objects}.
-
-    \item Click on any of the column in the bottom panel. The histogram of values for all 
-      objects will appear at the bottom right.
+    \item Select all SSOs. \texttt{Ctrl-A} or \texttt{Edit} $\rightarrow$ \texttt{Select all objects}.
+    \item Flyover any of the column in the bottom panel. An histogram of values for all objects will 
+          appear at the bottom right (except for columns \texttt{Name}, \texttt{RA} and \texttt{DEC}).
+    \item Flyover the \texttt{Class} column then flyover the histogram to see the corresponding 
+          targets in the FoV.
   \end{enumerate}
-  \setcounter{saveitem}{\value{enumi}}  
 
+  \setcounter{saveitem}{\value{enumi}}  
 
   We just used a \textbf{tiny} fraction of what \aladin can do.
   With it, you can retrieve catalogs, images, cross-match them,
-  select intersections, unions, etc etc. It is an extremely powerful
+  select intersections, unions, etc. It is an extremely powerful
   tool to explore the sky.
+
+\subsection*{Tips}
+
+\begin{itemize}[label=]
+	\item \tips{[1]}{enter the string "07 08 +26 34" in the Command field}
+	\item \tips{[2]}{enter "skybot" in the select field, wait a couple of seconds then select
+		Sky Body Tracker in the list of collections and finally Load. Alternatively, open the 
+		Server selector (File $\rightarrow$ Open server selector, shortcut Ctrl-L) and select
+		\skybot in the Catalog servers (right tab).}
+\end{itemize}
 
 
 
@@ -112,14 +121,14 @@
 We often process many images. Clicking on a GUI is not the most
 productive method. We thus often write scripts to perform
 many automated steps. Most VO services can be called through APIs
-and be scripted.
+and be scripted.\\
 
 Generally, the service has a base \texttt{url} to which queries are
 to be sent. The user choices are submitted through a list of \texttt{parameter}=\texttt{value}
 arguments. Of course, we cannot guess which \texttt{parameter} is
-available, nor what \texttt{value} are allowed. So read the documentation!
+available, nor what \texttt{value} are allowed. So read the documentation!\\
 
-For instance, we can repeat the query above in \python:
+For instance, we can repeat the query above in \python (see \texttt{scripts/query\_skybot.py}):
 
 \begin{lstlisting}[language=python]
 import requests
@@ -135,7 +144,7 @@ sr = 15/60
 observer = '500'
 
 # Service URL
-url = 'http://vo.imcce.fr/webservices/skybot/skybotconesearch_query.php?'
+url = 'https://ssp.imcce.fr/webservices/skybot/api/conesearch.php?'
 
 # Query parameters
 params = {
@@ -160,15 +169,13 @@ with open("response.txt", "w") as f:
 data = pd.read_csv( 'response.txt', sep='|', skiprows=2 )
 \end{lstlisting}
 
-  So long story short, we first
-  define the parameters (coordinates, radius, epoch) then query the
-  \skybot service thanks to the \texttt{request} package. The results
-  are written in a file, and read as a \texttt{pandas} \texttt{DataFrame}.
-  Performing this query for each image acquired by a telescope is very easy
-  (the parameters are contained in the image).
+So long story short, we first define the parameters (coordinates, radius, epoch) then query the
+\skybot service thanks to the \texttt{request} package. The results
+are written in a file, and read as a \texttt{pandas} \texttt{DataFrame}.
+Performing this query for each image acquired by a telescope is very easy
+(the parameters are contained in the image).\\
 
 The script above is a simple example, let's move to the notebook
 \texttt{3.3.2-How\_to\_query\_an\_API.ipynb} in the directory 
 \texttt{3.2-Query\_APIs} to get some practice.
-
 
