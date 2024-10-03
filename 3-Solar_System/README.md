@@ -5,7 +5,7 @@ Tutorials on Solar System specifics in VO are available in the present directory
 
 - 3.1. GUI_Find_SSO
   - **3.1-GUI_Find_SSO-SkyBoT.pdf**: Tutorial on cone-search for Solar System Objects (SSOs)
-  - **query_skybot.py**: Simple cone-search script!
+  - **scripts/query_skybot.py**: Simple cone-search script!
 
 - 3.2. Query_APIs
   - **3.2.1-Requirements.ipynb**: Simple notebook to check installed modules
