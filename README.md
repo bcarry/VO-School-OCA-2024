@@ -12,4 +12,4 @@ OCA in October 2024. The content is sorted by tutorials:
 - **6.** Talking to CDS with Jupyter
 - **7-VOSA** Fitting SEDs made easy: VOSA
 - **8-Multi-messenger** Multi-messengers Astronomy
-- **9.** Characterization of Transients
+- **9-Transients** Characterization of Transients
