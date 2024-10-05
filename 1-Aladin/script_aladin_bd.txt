@@ -17,4 +17,4 @@ sync
 select XMatch
 sync
 cplane candidates
-
+export candidates $1-$2.xml
