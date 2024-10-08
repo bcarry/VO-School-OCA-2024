@@ -7,7 +7,7 @@ OCA in October 2024. The content is sorted by tutorials:
 - **1-Aladin**: Exploring the sky with Aladin
 - **2-TOPCAT**: Handling catalogs and archives with TOPCAT
 - **3-Solar_System**: Solar System specifics
-- **4.** Tools for handling photometry from multiple sources
+- **4-Photometry** Presentation of concepts and tools for handling photometry
 - **5-CDS** Tutorials on CDS
 - **6.** Talking to CDS with Jupyter: [CDS github](https://github.com/cds-astro/tutorials)
 - **7-VOSA** Fitting SEDs made easy: VOSA
